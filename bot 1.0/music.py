@@ -37,9 +37,9 @@ class music(commands.Cog):
     @commands.command()
     async def pause(self , ctx):
         await ctx.voice_client.pause()
-        await ctx.send("Paused"
+        await ctx.send("Paused")
         
-    )@commands.command()
+    @commands.command()
     async def resume(self , ctx):
         await ctx.voice_client.resume()
         await ctx.send("Resume")
