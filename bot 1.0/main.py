@@ -13,6 +13,6 @@ for i in range(len(cogs)):
 
 
 
-client.run("OTExODQ5MDA0NTU4NjEwNDcy.YZnXkA.suhyBKHFJICk_nMS1MgZT0uKLgM")
+client.run("")
 
  
