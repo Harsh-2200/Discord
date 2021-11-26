@@ -18,12 +18,14 @@ bot.lava_nodes = [
 async def on_ready():
     print("Bot is ready to play music")
     bot.load_extension('dismusic')
-    
+
+@bot.command()
+async def hi(ctx):
+    await ctx.send("Hello")
+   
 
 
-
-
-bot.run('')
+bot.run(' ')
 
 
 
