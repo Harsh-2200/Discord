@@ -11,7 +11,7 @@ from nltk.stem.lancaster import LancasterStemmer
 nltk.download('punkt')
 stemmer = LancasterStemmer()
 
-with open('Spark.json') as file:
+with open('bot 3.0\Spark.json') as file:
     data = json.load(file)
 
 try:
@@ -99,26 +99,24 @@ def bag_of_words(s, words):
     return numpy.array(bag)
 
 """ --------------------------------------------------------------------------------------------------------------------------------------------------- """
-def chat():
-    print("Start talking with the bot (type quit to stop)!")
-    while True:
-        inp = input("You: ")
-        if inp.lower() == "quit":
-            break
 
-        results = model.predict([bag_of_words(inp, words)])[0]
-        results_index = numpy.argmax(results)
-        tag = labels[results_index]
 
-        if (results[results_index] > 0.7):
-            for tg in data["intents"]:
-                if tg['tag'] == tag:
-                    responses = tg['responses']
 
-            print(random.choice(responses))
-        else:
-            print("I'm not sure about that. Try again.")
+def chat(msg):
 
-chat()
+
+    results = model.predict([bag_of_words(msg, words)])[0]
+    results_index = numpy.argmax(results)
+    tag = labels[results_index]
+
+    if (results[results_index] > 0.7):
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                responses = tg['responses']
+
+        print(random.choice(responses))
+    else:
+        print("I'm not sure about that. Try again.")
+
 
 

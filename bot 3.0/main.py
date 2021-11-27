@@ -1,5 +1,5 @@
 from discord.ext import commands
-
+from chatbot import chat
 bot = commands.Bot(command_prefix="!")
 
 
@@ -21,7 +21,9 @@ async def on_ready():
 
 
 
-
+@bot.command()
+async def bi(ctx):
+    await ctx.send(chat())
 
 @bot.command()
 async def hi(ctx):
